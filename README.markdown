@@ -50,12 +50,12 @@ list.
 Fill in `fn`'s arguments with `args...` starting from the end of `fn`'s
 arguments list.
 
-## ap.curried(fn, args...)
+## ap.curry(fn, args...)
 
 Curry `fn`, returning a new function with `args...` partially applied from the
 beginning of `fn`'s arguments list.
 
-## ap.curriedRight(fn, args...)
+## ap.curryRight(fn, args...)
 
 Curry `fn` returning a new function with `args...` partially applied from the
 end of `fn`'s arguments list.

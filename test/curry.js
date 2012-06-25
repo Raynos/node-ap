@@ -1,12 +1,12 @@
-var assert = require('assert');
+var test = require("tap").test;
+
 var ap = require('../');
 var pa = ap.pa;
 var apa = ap.apa;
 var partial = ap.partial;
 var partialRight = ap.partialRight;
-var curried = ap.curried;
-var curriedRight = ap.curriedRight;
-var test = require("tap").test;
+var curry = ap.curry;
+var curryRight = ap.curryRight;
 
 function one(x, y) {
     return x * 2 + y
@@ -104,32 +104,32 @@ test("partialRight function", function (t) {
     t.end();
 });
 
-test("curried function", function (t) {
-    var apOne = curried(one)(3);
+test("curry function", function (t) {
+    var apOne = curry(one)(3);
     t.equal(apOne(4),
         3 * 2 + 4, "curry one");
 
-    var apTwo = curried(two)(3, 4);
+    var apTwo = curry(two)(3, 4);
     t.equal(apTwo(5, 6),
         3 * 2 + (4 + 5) * 6, "curry two");
 
-    var apThree = curried(three)(3);
+    var apThree = curry(three)(3);
     t.equal(apThree.call(z, 4),
         10 * (3 * 2 + 4), "curry three");
 
     t.end();
 });
 
-test("curriedRight function", function (t) {
-    var paOne = curriedRight(one)(3);
+test("curryRight function", function (t) {
+    var paOne = curryRight(one)(3);
     t.equal(paOne(4),
         4 * 2 + 3);
 
-    var paTwo = curriedRight(two)(3, 4);
+    var paTwo = curryRight(two)(3, 4);
     t.equal(paTwo(5, 6),
         5 * 2 + (6 + 3) * 4);
 
-    var paThree = curriedRight(three)(3);
+    var paThree = curryRight(three)(3);
     t.equal(paThree.call(z, 4),
         10 * (4 * 2 + 3));
 
