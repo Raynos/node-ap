@@ -1,5 +1,5 @@
 var assert = require('assert');
-var ap = require('ap');
+var ap = require('../');
 var pa = ap.pa;
 var apa = ap.apa;
 var partial = ap.partial;
